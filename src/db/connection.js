@@ -12,6 +12,14 @@ const poolUser = new Pool({
 });
 
 
+const administrativepl = new Pool({
+    user: process.env.db_user,
+    host: process.env.db_host,
+    database:process.env.administratives_db,
+    password: process.env.db_pw,
+    port: process.env.db_port
+});
+
 // 👉 Theme-based pool map
 const themeDatabases = {
   administratives: process.env.Administratives_db,
