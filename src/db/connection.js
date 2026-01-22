@@ -14,11 +14,11 @@ const poolUser = new Pool({
 
 // 👉 Theme-based pool map
 const themeDatabases = {
-  administrative: process.env.Administrative_db,
+  administratives: process.env.Administratives_db,
   aoi: process.env.aoi_db,
   lulc: process.env.lulc_db,
   lulcchange: process.env.lulcchange_db,
-  densechange: process.env.densechange_db ,
+  hotspots: process.env.hotspots_db,
 };
 
 const poolMap = {};

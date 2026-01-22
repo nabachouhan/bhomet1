@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
   const result = await client.query("SELECT Count(file_name) from catalog WHERE theme = 'raster'");
   const result1 = await client.query("SELECT Count(file_name) from catalog WHERE theme = 'lulc'");
   const result2 = await client.query("SELECT Count(file_name) from catalog WHERE theme = 'lulcchange'");
-  const result3 = await client.query("SELECT Count(file_name) from catalog WHERE theme = 'hotspot'");
+  const result3 = await client.query("SELECT Count(file_name) from catalog WHERE theme = 'hotspots'");
   client.release();
 
   // Combine counts in one object

@@ -10,7 +10,7 @@ const databasesToCreate = [
   'aoi',
   'lulc',
   'lulcchange',
-  'hotspot',
+  'hotspots',
 ];
 
 async function createDatabases() {
