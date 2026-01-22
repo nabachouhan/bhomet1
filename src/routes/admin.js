@@ -701,6 +701,13 @@ router.get("/catalog/:file_name", async (req, res) => {
 
     if (file_type == 'vector') {
 
+
+      console.log(theme);
+      
+      console.log(`SELECT ST_AsText(ST_Envelope(ST_Extent(geom))) AS bbox_geom_wkt
+            FROM "${file_name}";`);
+      
+
       const pool = getPoolByTheme(theme);
       client = await pool.connect();
       // const { rows } = await client.query('SELECT file_id, file_name FROM shapefiles WHERE file_name = $1', [file_name]);
