@@ -138,6 +138,7 @@ const tiffstorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const fileName = req.body.file_name;
+console.log(fileName);
 
     if (!fileName) {
       return cb(new Error("file_name is required"));
