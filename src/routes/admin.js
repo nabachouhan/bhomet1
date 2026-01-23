@@ -479,7 +479,7 @@ router.get("/upload", adminAuthMiddleware, async (req, res) => {
 // ✅ Route: POST /shpuploads
 // ✅ Route: POST /shpuploads
 // ✅ Route: POST /shpuploads
-router.post("/shpuploads", adminAuthMiddleware, shpupload.single("uploaded_file"),
+router.post("/shpuploads", adminAuthMiddleware, shpupload.single("file_name"),
   async (req, res) => {
 
     const cleanupFiles = () => {
@@ -1011,7 +1011,7 @@ router.post("/publish", upload.none(), adminAuthMiddleware, async (req, res) => 
 
 // tihf
 // POST /tiffuploads (Upload GeoTIFF as raw file)
-router.post("/tiffuploads", adminAuthMiddleware, tiff_upload.single("uploaded_file"), async (req, res) => {
+router.post("/tiffuploads", adminAuthMiddleware, tiff_upload.single("file_name"), async (req, res) => {
   const cleanup = () => {
     if (req.file && fs.existsSync(req.file.path)) {
       fs.unlinkSync(req.file.path);
