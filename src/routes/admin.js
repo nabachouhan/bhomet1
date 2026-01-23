@@ -127,13 +127,15 @@ const uploadDir = "tempuploads"; // base temp folder
 
 const tiffstorage = multer.diskStorage({
   destination: (req, file, cb) => {
+        console.log(file);
+
+    console.log(req.body);
     const theme = req.body.theme || "temp";
     const dir = path.join(uploadDir, theme);
 
     fs.mkdirSync(dir, { recursive: true });
     cb(null, dir);
   },
-
   filename: (req, file, cb) => {
     const fileName = req.body.file_name;
 
