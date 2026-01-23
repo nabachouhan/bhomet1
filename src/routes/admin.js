@@ -707,8 +707,9 @@ router.get("/catalog/:file_name", async (req, res) => {
       console.log(`SELECT ST_AsText(ST_Envelope(ST_Extent(geom))) AS bbox_geom_wkt
             FROM "${file_name}";`);
       
+      const pool = getPoolByTheme(theme);
 
-      client = await administrativepl.connect();
+      client = await pool.connect();
       // const { rows } = await client.query('SELECT file_id, file_name FROM shapefiles WHERE file_name = $1', [file_name]);
       const { rows } = await client.query(
         `SELECT ST_AsText(ST_Envelope(ST_Extent(geom))) AS bbox_geom_wkt
